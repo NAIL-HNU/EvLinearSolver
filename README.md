@@ -41,11 +41,11 @@ addpath(genpath('D:\Code\Mat\Utils')); % path to repo yamlmatlab
 If you don't have this repo, please download it from https://github.com/ewiger/yamlmatlab
 
 ## 1.2 Dataset
-We have released calculated normal flow on serveral sequence which could be downloaded from .
+We have released calculated normal flow on serveral sequence which could be downloaded from https://drive.google.com/drive/folders/1-F3GzyCHIk9krUcTe2QiDxmnEYGnx8tb?usp=sharing.
 - Rotational motion estimation: sequence shapes_rotation from ECD Dataset (IJRR, 2017).
 - 6 DoF tracking estimation：sequence corner_slow1 from VECtor Dataset (RAL, 2021).
-
-You can also calculate normal flow from your event data
+More sequence will be made available soon.
+You can also calculate normal flow from your event data (Note that undistortion is necessary)
 
 # 2. Usage
 Given input sparse normal flow, our linear solver could give
