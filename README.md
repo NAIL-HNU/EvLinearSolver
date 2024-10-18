@@ -56,9 +56,9 @@ git clone https://github.com/NAIL-HNU/EvLinearSolver.git
 ```
 
 You need to revised path in corresponding yaml file to run your code. 
-- Rotation Motion Estimation: You can run file **rotation_test** to check the result, this function output estimated angular velocity and groundtruth from IMU measurement.
+- Rotation Motion Estimation: You can run file **rotation_test** in the MATLAB_Code folder to check the result, this function output estimated angular velocity and groundtruth from IMU measurement.
 
-- 6 DoF Tracking Estimation: You can run file **tracking_test** to check the result, this function output estimated angular velocity and linear velocity as well as groundtruth from IMU and Mocap System measurement.
+- 6 DoF Tracking Estimation: You can run file **tracking_test** in the MATLAB_Code folder to check the result, this function output estimated angular velocity and linear velocity as well as groundtruth from IMU and Mocap System measurement.
 
 - Differential Homography Estimation: will be updated soon.
 

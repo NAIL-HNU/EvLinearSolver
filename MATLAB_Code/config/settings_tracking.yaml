@@ -1,0 +1,19 @@
+basic_dataset_path: 'D:\Dataset\'
+dataset_name: 'VECtor\' #
+sequence_name: 'mountain_normal1\' # Alter: mountain_normal1 corner_slow1
+drop_rate: 0
+depth_scale_factor: 1000 # Kinect
+distortion_mode: 1  # "0" denotes synthetic data, "1" denotes real data
+event_batch_size: 1000000
+sample_number: 500
+sample_gap: 100
+ransac_thres: 1e-4
+window_size: 20
+loop: 3
+plane_fit_thres: 0.5
+epoch_time_span: 0.06
+n_data_pnts: 20
+n_ctrl_pnts: 6
+slide_step: 10
+results_folder: 'D:\Experiments\LinearSolver\RealDataResults\'
+normal_flow_folder: 'D:\Experiments\LinearSolver\RealDataResults\normal_flow\'

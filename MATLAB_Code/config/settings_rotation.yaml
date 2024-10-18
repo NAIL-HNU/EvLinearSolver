@@ -1,0 +1,17 @@
+basic_dataset_path: 'D:\Dataset\'
+dataset_name: 'IJRR\' # Alter: Davis346; IJRR
+sequence_name: 'shapes_rotation\' # Alter: shapes_rotation; dynamic_rotation ; poster_rotation; ground_rotation
+distortion_mode: 1
+event_batch_size: 5000
+sample_number: 100
+loop: 10
+sample_gap:  100
+window_size:  7
+ransac_thres:  0.000100
+plane_fit_thres:  0.000010
+epoch_time_span:  0.020000
+n_data_pnts: 20
+n_ctrl_pnts: 6
+slide_step: 10
+results_folder: 'D:\Experiments\LinearSolver\RealDataResults\'
+normal_flow_folder: 'D:\Experiments\LinearSolver\RealDataResults\normal_flow\'
