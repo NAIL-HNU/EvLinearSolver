@@ -1,6 +1,6 @@
 # Motion and Structure from Event-based Normal Flow
 
-This repository delivers **EvLinearSolver**, an event-based stereo visual-inertial odometry system built on top of our previous work ESVO [3]. It is a direct method that solves the tracking and mapping problems in parallel by leveraging the spatio-temporal coherence in the stereo event data. It alleviates ESVO's high computational complexity in mapping and address its degeneracy in camera pose tracking. To the best of our knowledge, the system is the first published work that achieves real-time performance using a standard CPU on event cameras of VGA pixel resolution. 
+This repository delivers **EvLinearSolver**, a linear solution for a series of geometric model fitting problems on event data.
 
 ### **Video**
 
@@ -10,7 +10,19 @@ This repository delivers **EvLinearSolver**, an event-based stereo visual-inerti
 
 [1] **[Motion and Structure from Event-based Normal Flow](http://arxiv.org/abs/2407.12239)**, *Zhongyang Ren, Bangyan Liao, Delei Kong, Jinghang Li, Peidong Liu, Laurent Kneip, Guillermo Gallego, Yi Zhou*, ECCV 2024. [PDF](http://arxiv.org/abs/2407.12239), [Video](https://www.youtube.com/watch?v=2RzSa9pC-7A).
 
+### Citation
+If you find this code useful in your research, please cite this work by:
 
+```
+@InProceedings{Ren2024eccv,
+      title     = {Motion and Structure from Event-based Normal Flow}, 
+      author    = {Zhongyang Ren and Bangyan Liao and Delei Kong and Jinghang Li and Peidong Liu 
+                  and Laurent Kneip and Guillermo Gallego and Yi Zhou},
+      booktitle = {European Conference on Computer Vision (ECCV)},
+      doi       = {},
+      year      = {2024}
+      }
+```
 
 
 # 1. Installation
@@ -19,30 +31,42 @@ We have tested EvLinearSolver on machines with the following configurations
 
 * Windows 10/11 + MATLAB R2022a
 
-**Clone this repository** into your matlab workspace.
 
 
 ## 1.1 Dependencies
-
 You may need add path to 'yamlmatlab' for hyperparameter settings
-
 ```
 addpath(genpath('D:\Code\Mat\Utils')); % path to repo yamlmatlab
 ```
-
 If you don't have this repo, please download it from https://github.com/ewiger/yamlmatlab
 
+## 1.2 Dataset
+We have released calculated normal flow on serveral sequence which could be downloaded from .
+- Rotational motion estimation: sequence shapes_rotation from ECD Dataset (IJRR, 2017).
+- 6 DoF tracking estimation：sequence corner_slow1 from VECtor Dataset (RAL, 2021).
+
+You can also calculate normal flow from your event data
 
 # 2. Usage
+Given input sparse normal flow, our linear solver could give
 
-- 
-- 
+To run this code, you need **Clone this repository** into your matlab workspace.
+```
+git clone https://github.com/NAIL-HNU/EvLinearSolver.git
+```
 
-# 3. Notes for Good Results
+You need to revised path in corresponding yaml file to run your code. 
+- Rotation Motion Estimation: You can run file **rotation_test** to check the result, this function output estimated angular velocity and groundtruth from IMU measurement.
 
-- Real-time performance is witnessed on a desktop with an Intel Core i7-14700k CPU. 
+- 6 DoF Tracking Estimation: You can run file **tracking_test** to check the result, this function output estimated angular velocity and linear velocity as well as groundtruth from IMU and Mocap System measurement.
 
-* To get real-time performance, you need a powerful PC with modern CPUs which supports at least 6 threads. 
-  Remember to keep you computer cool!
+- Differential Homography Estimation: will be updated soon.
 
-* 
+# 3. Contact
+
+If you have any questions or inquiries, please open an issue or email **Zhongyang Ren** at 
+- Primary: zhongyangren@hnu.edu.cn
+- Alternate: cs.zhongyang@gmail.com (in case your email is filtered out by the primary mailbox).
+
+
+
