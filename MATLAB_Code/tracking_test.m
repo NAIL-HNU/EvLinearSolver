@@ -36,6 +36,16 @@ fy = camera_param.K(2,2);
 
 %% Load undistort map
 
+depth_folder = strcat(dataset_path,'depth\');
+depth_files = dir(fullfile(depth_folder, '*.png'));
+depth_files = {depth_files.name};
+depth_files = sort(depth_files);
+for i = 1:length(depth_files)
+    depth_img = imread(strcat(depth_folder,depth_files{i}));
+    depth_img = double(depth_img);
+    depth_img = depth_img / depth_scale_factor;
+    
+end
 
 %% ---------- main ----------
 time_ref = nflow_all(1, 1);
@@ -77,6 +87,16 @@ end
 
 
 
-
-
+    % get depth map list
+    min_time = event_timestamp(1);
+    max_time = event_timestamp(end);
+    first_depth_map_id = find(img_timestamp <= min_time, 1, 'last');
+    second_depth_map_id = find(img_timestamp >= max_time, 1, "first");
+    depth_map_list = cell(second_depth_map_id - first_depth_map_id + 1,1);
+    depth_map_time_list = [];
+    for id = first_depth_map_id:second_depth_map_id
+        depth_map_time_list = [depth_map_time_list; img_timestamp(id)];
+        depth_map_sub = double(imread(strcat(depth_root_path,depthFileList(id).name))) / depth_scale_factor;
+        depth_map_list{id - first_depth_map_id + 1, 1} = depth_map_sub;
+    end
 

@@ -1,8 +1,8 @@
-function [RMSE, error_avg] =  evaluate_velocity(motion_est, motion_gt)
+function [RMSE, error_avg] =  evaluate_velocity(motion_est, pose_gt, dataset_name)
     % Time alignment
     error_all = zeros(length(motion_est),3);
     for i = 1:length(motion_est)
-        velocity_gt = getVelocityAt(motion_est(i,1), motion_gt);
+        velocity_gt = getVelocityAt(motion_est(i,1), pose_gt, dataset_name);
         velocity_est = motion_est(i,2:4);
         error = velocity_est - velocity_gt;
         error_all(i,:) = error;
