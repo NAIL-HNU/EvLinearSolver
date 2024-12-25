@@ -4,9 +4,13 @@ addpath(genpath('D:\Code\Mat\Utils\yamlmatlab'))
 addpath(genpath('D:\Code\Mat\Utils\npy-matlab'))
 
 hyper_para = yaml.ReadYaml('config\settings_rotation.yaml');
-events_timestamp_folder = 'D:\Dataset\IJRR\boxes_rotation\events_timestamp\';
-events_folder = 'D:\Dataset\IJRR\boxes_rotation\events\';
-flow_folder = 'D:\Dataset\IJRR\boxes_rotation\flow_prediction\';
+basic_path = 'D:\Dataset\';
+dataset_name = 'IJRR\';
+sequence_name = 'dynamic_rotation';
+events_timestamp_folder = strcat(basic_path,dataset_name,sequence_name,'\events_timestamp\');
+events_folder = strcat(basic_path,dataset_name,sequence_name,'\events\');
+flow_folder = strcat(basic_path,dataset_name,sequence_name,'\flow_prediction\');
+
 
 ransac_thres = hyper_para.ransac_thres;
 sample_number = hyper_para.sample_number;
@@ -81,6 +85,7 @@ for i = 1:length(filelist)
 
 end
 save("result\boxes_rotation.mat", "result");
+[RMSE, error_avg] =  evaluate_angular_velocity(result, gt);
 
 
 
