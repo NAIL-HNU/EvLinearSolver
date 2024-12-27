@@ -1,6 +1,6 @@
 basic_dataset_path: 'D:\Dataset\'
 dataset_name: 'VECtor\' #
-sequence_name: 'mountain_normal1\' # Alter: mountain_normal1 corner_slow1
+sequence_name: 'corner_slow1\' # Alter: mountain_normal1 corner_slow1
 drop_rate: 0
 depth_scale_factor: 1000 # Kinect
 distortion_mode: 1  # "0" denotes synthetic data, "1" denotes real data
